@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     protected $table="usuarios";
-    protected $primaryKey="id_movies";
+    protected $primaryKey="id_usuarios";
     public $timestamps=false;
-    protected $fillable=["Nombre","Admin_id_admin","Trailer","Fecha_Subida","Descripcion",
-    "URL","Miniatura"];
+    protected $fillable=["Nombre","Host","Password","Ultima_conexion","Fecha_Creacion",
+    "Estado"];
 }

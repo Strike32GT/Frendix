@@ -10,4 +10,10 @@ class Categoria extends Model
     protected $primaryKey="_id_categories";
     public $timestamps=false;
     protected $fillable=["Nombre"];
+
+    //Una categoria tiene muchas películas
+    public function peliculas()
+    {
+    return $this->hasMany(Pelicula::class, 'Categoria_Pelicula', '_id_categories');
+    }
 }

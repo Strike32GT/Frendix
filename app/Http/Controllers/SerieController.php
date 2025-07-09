@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Serie;
-use App\Models\Episodio;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class SerieController extends Controller
@@ -26,7 +26,8 @@ class SerieController extends Controller
      */
     public function create()
     {
-        return view('serie.create');
+        $categorias=Categoria::all();
+        return view('serie.subir',compact('categorias'));   
     }
 
     /**
@@ -50,21 +51,21 @@ class SerieController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
+
+    
     public function edit(string $id)
     {
         $serie=Serie::findOrFail($id);
-        return view('serie.edit',compact('serie'));
+        $categorias=Categoria::all();
+        return view('serie.edit',compact('serie','categorias'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
+    
     public function update(Request $request, string $id)
     {
         $request->validate([
@@ -76,7 +77,7 @@ class SerieController extends Controller
         $serie=Serie::findOrFail($id);
         $serie->update($request->all());
 
-        return redirect()->route('serie.index')->with('success','Serie actualizada :D');
+        return redirect()->route('series.index')->with('success', 'Serie actualizada exitosamente');
     }
 
     /**
@@ -86,7 +87,6 @@ class SerieController extends Controller
     {
         $serie=Serie::findOrFail($id);
         $serie->delete();
-
-        return redirect()->route('serie.index')->with('success','Serie eliminada :D');
+        return redirect()->route('series.index')->with('success','Serie eliminada Correctamente');
     }
 }

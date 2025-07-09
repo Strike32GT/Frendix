@@ -54,17 +54,8 @@
                 </a>
             </div>
 
-            <!--Boton de Iniciar con Facebook-->
-            <div class="mt-4 text-center">
-                <a href="{{ route('google.login') }}"
-                    class="inline-flex items-center px-6 py-2 bg-white border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100 shadow-sm transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" 
-                        alt="Facebook"
-                        class="w-5 h-5">
-                    &nbsp;
-                    Iniciar Sesión con Facebook    
-                </a>
-            </div>    
+
+                
                     
         </form>
     </x-authentication-card>
